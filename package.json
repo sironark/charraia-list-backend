@@ -11,8 +11,7 @@
     "test": "dotenv -e .env.test prisma migrate deploy & dotenv -e .env.test jest -- -i",
     "test:coverage": "npm run test -- --coverage",
     "lint": "eslint .",
-    "precommit": "lint-staged",
-    "prepare": "husky install"
+    "precommit": "lint-staged"
   },
   "keywords": [],
   "author": "",
