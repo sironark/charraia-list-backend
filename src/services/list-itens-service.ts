@@ -22,8 +22,8 @@ async function createItens(body) {
 async function editQuantity(id: number) {
   const idExists = await listRepository.getItemById(id);
   if (!idExists) throw notFoundError('Item não encontrado!');
-  if (idExists.quantity === 0)
-    throw lockedError('item não pode ser selecionado pois já foi reservado por outra pessoa.');
+  console.log(idExists);
+  if (idExists.quantity <= 0) throw lockedError('item não pode ser selecionado pois já foi reservado por outra pessoa.');
 
   const answare = await listRepository.editQuantity(id);
   return answare;

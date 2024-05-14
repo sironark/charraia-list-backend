@@ -1,7 +1,11 @@
 import prisma from '@/database/database-connection';
 
 async function getItens() {
-  const listItens = await prisma.listItens.findMany();
+  const listItens = await prisma.listItens.findMany({
+    orderBy: {
+      quantity: 'desc',
+    },
+  });
   return listItens;
 }
 
@@ -13,19 +17,7 @@ async function getItemById(itemId: number) {
   });
   return item;
 }
-/*
-async function getGameByName(gameName: string) {
-  const game = await prisma.game.findFirst({
-    where: {
-      name: {
-        mode: 'insensitive',
-        equals: gameName,
-      },
-    },
-  });
-  return game;
-}
-*/
+
 async function createItens(body) {
   const answare = await prisma.listItens.createMany({
     data: body,
@@ -45,16 +37,7 @@ async function editQuantity(id: number) {
   });
   return answare;
 }
-/*
-async function deleteGame(gameId: number) {
-  const game = await prisma.game.delete({
-    where: {
-      id: gameId,
-    },
-  });
-  return game;
-}
-*/
+
 export const listRepository = {
   getItens,
   getItemById,

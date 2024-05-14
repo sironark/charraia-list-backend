@@ -25,7 +25,7 @@ model ListItens {
 model Cart {
   id Int @id @default(autoincrement())
   userName String
-  userCells Int
+  userCells String
   listItens ListItens     @relation(fields: [itemId], references: [id])
   itemId Int
 
