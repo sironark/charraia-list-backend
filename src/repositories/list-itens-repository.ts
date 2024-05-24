@@ -1,11 +1,7 @@
 import prisma from '@/database/database-connection';
 
 async function getItens() {
-  const listItens = await prisma.listItens.findMany({
-    orderBy: {
-      id: 'asc',
-    },
-  });
+  const listItens = await prisma.listItens.findMany();
   return listItens;
 }
 
