@@ -10,3 +10,8 @@ export async function insertToCart(req: Request, res: Response) {
 
   res.status(httpStatus.CREATED).send(response);
 }
+
+export async function getCart(req: Request, res: Response) {
+  const response = await cartService.getCart();
+  res.status(httpStatus.OK).send(response);
+}

@@ -8,6 +8,19 @@ async function insertToCart(body: Omit<Cart, 'id'>) {
   return answare;
 }
 
+async function getCart() {
+  const answare = await prisma.cart.findMany({
+    include: {
+      listItens: true,
+    },
+    orderBy: {
+      id: 'asc',
+    },
+  });
+  return answare;
+}
+
 export const cartRepository = {
   insertToCart,
+  getCart,
 };
