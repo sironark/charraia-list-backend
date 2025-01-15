@@ -15,3 +15,8 @@ export async function getCart(req: Request, res: Response) {
   const response = await cartService.getCart();
   res.status(httpStatus.OK).send(response);
 }
+
+export async function deleteCart(req: Request, res: Response) {
+  const response = await cartService.deleteCart();
+  res.status(httpStatus.OK).send(response);
+}

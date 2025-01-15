@@ -27,7 +27,13 @@ async function getCart() {
   return editedResponse;
 }
 
+async function deleteCart() {
+  const response = await cartRepository.deletecart();
+  return response;
+}
+
 export const cartService = {
   insertToCart,
   getCart,
+  deleteCart,
 };

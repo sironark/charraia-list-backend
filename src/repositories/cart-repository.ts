@@ -20,7 +20,13 @@ async function getCart() {
   return answare;
 }
 
+async function deletecart(){
+  const answare = await prisma.cart.deleteMany();
+  return answare;
+}
+
 export const cartRepository = {
   insertToCart,
   getCart,
+  deletecart,
 };
