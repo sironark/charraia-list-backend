@@ -21,7 +21,7 @@ async function getCart() {
 }
 
 async function deletecart(){
-  const answare = await prisma.cart.deleteMany();
+  const answare = await prisma.cart.deleteAll();
   return answare;
 }
 
